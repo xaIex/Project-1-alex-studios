@@ -1,10 +1,15 @@
 
 function validateForms(){
 	let input1 = document.getElementById("email").value;
-    
-    if(input1 == "yahoo@com"){
+    let emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+	if(!emailPattern.test(input1)){
+		alert("Not a valid Email");
+		document.getElementById("email").value = "";
+		return false;
+	}
+    if(input1 == ""){
         alert("Not a valid email!");
-        DocumentFragment.getElementById("pwd").value = "";
+        document.getElementById("pwd").value = "";
         return false;
     }
 	
